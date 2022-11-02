@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './mycomponents/Footer';
 import NavBar from './mycomponents/NavBar';
 import TodosList from './mycomponents/TodosList';
 
@@ -23,10 +24,10 @@ function App() {
   ]
 
   return (
-    <div className="App text-primary">
-        Jeeshan Rocks!
+    <div className="App text-left">
         <NavBar flag={false}></NavBar>
         <TodosList item={todosObject}></TodosList>
+        <Footer></Footer>
     </div>
   );
 }
