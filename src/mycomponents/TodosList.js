@@ -28,11 +28,18 @@ onDelete(itm){
   let index=preItems.indexOf(itm)
   preItems.splice(index,1)
   
-  if(this.state.items.length==0)
+  if(this.state.items.length===0)
     this.setState({flag:false})
   else
     this.setState({items:preItems})
 
+}
+
+addTodosItem(titleA, descA){
+  let nextItemx = this.state.items
+  nextItemx.splice(0, 0, {title:titleA, desc:descA})
+  this.setState({items:nextItemx})
+  console.log("**************", titleA, "+++++++++++++++++", descA )
 }
 
   render() {
@@ -49,8 +56,10 @@ onDelete(itm){
       <div className='m-3'> 
         <h3 className='text-center'>My Todos List</h3> 
         <hr />
-        <AddTodos></AddTodos>      
-        {this.state.flag? mapItems:"No item left in todos."}
+        <AddTodos addTodosItm={this.addTodosItem.bind(this)}></AddTodos>
+        <hr />
+        {mapItems}
+        {this.state.flag?"No item left in todos.":""}
         <hr />
         
         <br />
